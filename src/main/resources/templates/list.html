@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="layouts/layout"
+>
+<!-- index.html 고유 CSS 추가 -->
+<th:block layout:fragment="css"> </th:block>
+
+<!-- index.html 고유 스크립트 추가 -->
+<th:block layout:fragment="script"> </th:block>
+
+<div layout:fragment="content">
+    <div class="card-columns">
+        <div class="card" th:each="data : ${list}">
+            <img th:src="${data.imageUrl}" class="card-img-top" th:alt="${data.subject}">
+            <div class="card-body">
+                <h8 class="card-title" th:text="${data.subject}"></h8>
+            </div>
+        </div>
+    </div>
+    <nav aria-label="Page navigation" th:if="${not #lists.isEmpty(list)}">
+        <ul class="pagination justify-content-center">
+            <li class="page-item">
+                <a class="page-link" th:href="@{?page=1}" tabindex="-1" aria-disabled="true">&laquo;</a>
+            </li>
+            <th:block th:each="num : ${#numbers.sequence(page.startPageNum, page.lastPageNum)}">
+                <li class="page-item active" aria-current="page" th:if="${page.currentPage == num}"><a class="page-link" href="#" th:text="${num}"></a></li>
+                <li class="page-item" th:unless="${page.currentPage == num}"><a class="page-link" th:href="@{/(page=${num})}" th:text="${num}"></a></li>
+            </th:block>
+            <li class="page-item" th:if="${page.currentPage != page.lastPage}">
+                <a class="page-link" th:href="@{/(page=${page.lastPage})}">&raquo;</a>
+            </li>
+            <li class="page-item" th:unless="${page.currentPage != page.lastPage}" disabled>
+                <a class="page-link" href="#">&raquo;</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+</html>

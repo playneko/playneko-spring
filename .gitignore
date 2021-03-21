@@ -23,3 +23,17 @@
 /app/Config/core.php
 /app/Config/database.php
 /vendors/*
+*.bin
+*.lock
+.idea/vcs.xml
+.idea/uiDesigner.xml
+.idea/misc.xml
+.idea/jarRepositories.xml
+.idea/gradle.xml
+.idea/compiler.xml
+.gradle/vcs-1/gc.properties
+.gradle/configuration-cache/gc.properties
+.gradle/buildOutputCleanup/cache.properties
+.gradle/6.8.3/gc.properties
+.gradle/6.7/gc.properties
+*.class

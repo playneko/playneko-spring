@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="layouts/layout"
+>
+<!-- index.html 고유 CSS 추가 -->
+<th:block layout:fragment="css"> </th:block>
+
+<!-- index.html 고유 스크립트 추가 -->
+<th:block layout:fragment="script"> </th:block>
+
+<div layout:fragment="content">
+    <div class="card-columns">
+        <div class="card" th:each="data : ${list}">
+            <img th:src="${data.imageUrl}" class="card-img-top" th:alt="${data.subject}">
+            <div class="card-body">
+                <h8 class="card-title" th:text="${data.subject}"></h8>
+            </div>
+        </div>
+    </div>
+</div>
+</html>
