@@ -4,3 +4,9 @@
     -moz-column-count: 5;
     column-count: 5;
 }
+
+.avatar-size {
+    width: 65px;
+    height: 65px;
+    border-radius: 35px;
+}

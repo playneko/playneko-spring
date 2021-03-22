@@ -40,4 +40,21 @@
         WHERE subject LIKE '%${search}%'
         ORDER BY no DESC
     </select>
+    <select id="selectDetail" parameterType="int" resultType="com.playneko.playneko.vo.BlogDataVo">
+        SELECT
+        no,
+        uniq_code as uniqCode,
+        category,
+        subject,
+        comment,
+        publish,
+        author,
+        site_tag as siteTag,
+        site_url as siteUrl,
+        image_url as imageUrl,
+        image_file as imageFile
+        FROM link_site_data
+        WHERE no = #{id}
+        LIMIT 0, 1
+    </select>
 </mapper>

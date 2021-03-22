@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="layouts/layout"
+>
+<!-- index.html 고유 CSS 추가 -->
+<th:block layout:fragment="css"> </th:block>
+
+<!-- index.html 고유 스크립트 추가 -->
+<th:block layout:fragment="script"> </th:block>
+
+<div layout:fragment="content">
+    <div class="container">
+        <div class="media">
+            <img src="https://firebasestorage.googleapis.com/v0/b/cocoatalk-41442.appspot.com/o/avata%2FkCvqARth.png?alt=media&token=23aedec4-4aa9-410a-84d1-7e7cb507c345" class="mr-3 avatar-size" alt="...">
+            <div class="media-body">
+                <h5 class="mt-0" th:text="${detail.subject}"></h5>
+            </div>
+        </div>
+        <div class="media">
+            <span th:utext="${detail.comment}"></span>
+        </div>
+    </div>
+</div>
+</html>

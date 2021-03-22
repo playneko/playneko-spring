@@ -13,7 +13,9 @@
 <div layout:fragment="content">
     <div class="card-columns">
         <div class="card" th:each="data : ${list}">
-            <img th:src="${data.imageUrl}" class="card-img-top" th:alt="${data.subject}">
+            <a th:href="@{'/detail/' + ${data.no}}">
+                <img th:src="${data.imageUrl}" class="card-img-top" th:alt="${data.subject}">
+            </a>
             <div class="card-body">
                 <h8 class="card-title" th:text="${data.subject}"></h8>
             </div>

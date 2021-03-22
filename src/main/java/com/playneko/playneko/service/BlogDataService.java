@@ -24,4 +24,8 @@ public class BlogDataService {
     public List<BlogDataVo> selectSearchList(String search) {
         return mapper.selectSearchList(search);
     }
+
+    public BlogDataVo selectDetail(Integer id) {
+        return mapper.selectDetail(id);
+    }
 }

@@ -38,6 +38,13 @@ public class BlogController {
         return "search";
     }
 
+    @GetMapping("/detail/{id}")
+    public String detail(Model model, @PathVariable("id") Integer id) {
+        BlogDataVo dataDetail = blogDataService.selectDetail(id);
+        model.addAttribute("detail", dataDetail);
+        return "detail";
+    }
+
     private Map<String, Integer> paging(int currentPage, int totalCount) {
         Map<String, Integer> map = new HashMap<String, Integer>();
         int startPageNum = 1;
@@ -66,16 +73,6 @@ public class BlogController {
         map.put("startPageNum", startPageNum);
         // 보여줄 마지막 페이지 번호
         map.put("lastPageNum", lastPageNum);
-
-//        System.out.println("totalCount:" + totalCount);
-//        System.out.println("totalCount:" + BLOCK_PAGE_NUM_COUNT);
-//        System.out.println("totalCount:" + (totalCount / (double)BLOCK_PAGE_NUM_COUNT));
-//        System.out.println("Math:" + Math.ceil((totalCount / (double)BLOCK_PAGE_NUM_COUNT)));
-//        System.out.println("currentPage:" + currentPage);
-//        System.out.println("startPage:" + startPage);
-//        System.out.println("lastPage:" + lastPage);
-//        System.out.println("startPageNum:" + startPageNum);
-//        System.out.println("lastPageNum:" + lastPageNum);
 
         return map;
     }
